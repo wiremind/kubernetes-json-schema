@@ -1,0 +1,212 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "$id": "#/properties/apiVersion",
+      "type": "string",
+      "title": "The Apiversion Schema",
+      "default": "",
+      "examples": [
+        "monitoring.coreos.com/v1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "kind": {
+      "$id": "#/properties/kind",
+      "type": "string",
+      "title": "The Kind Schema",
+      "default": "",
+      "examples": [
+        "ServiceMonitor"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "metadata": {
+      "$id": "#/properties/metadata",
+      "type": "object",
+      "title": "The Metadata Schema",
+      "required": [
+        "name",
+        "labels"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/properties/metadata/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "cayzn-live-production-prometheus-blackbox-exporter"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "labels": {
+          "$id": "#/properties/metadata/properties/labels",
+          "type": "object",
+          "title": "The Labels Schema",
+          "required": [
+            "app",
+            "chart",
+            "release",
+            "heritage"
+          ],
+          "properties": {
+            "app": {
+              "$id": "#/properties/metadata/properties/labels/properties/app",
+              "type": "string",
+              "title": "The App Schema",
+              "default": "",
+              "examples": [
+                "prometheus-blackbox-exporter"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "chart": {
+              "$id": "#/properties/metadata/properties/labels/properties/chart",
+              "type": "string",
+              "title": "The Chart Schema",
+              "default": "",
+              "examples": [
+                "prometheus-blackbox-exporter-0.1.0"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "release": {
+              "$id": "#/properties/metadata/properties/labels/properties/release",
+              "type": "string",
+              "title": "The Release Schema",
+              "default": "",
+              "examples": [
+                "cayzn-live-production"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "heritage": {
+              "$id": "#/properties/metadata/properties/labels/properties/heritage",
+              "type": "string",
+              "title": "The Heritage Schema",
+              "default": "",
+              "examples": [
+                "Tiller"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        }
+      }
+    },
+    "spec": {
+      "$id": "#/properties/spec",
+      "type": "object",
+      "title": "The Spec Schema",
+      "required": [
+        "endpoints",
+        "namespaceSelector",
+        "selector"
+      ],
+      "properties": {
+        "endpoints": {
+          "$id": "#/properties/spec/properties/endpoints",
+          "type": "array",
+          "title": "The Endpoints Schema",
+          "items": {
+            "$id": "#/properties/spec/properties/endpoints/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "interval"
+            ],
+            "properties": {
+              "interval": {
+                "$id": "#/properties/spec/properties/endpoints/items/properties/interval",
+                "type": "string",
+                "title": "The Interval Schema",
+                "default": "",
+                "examples": [
+                  "30s"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        },
+        "namespaceSelector": {
+          "$id": "#/properties/spec/properties/namespaceSelector",
+          "type": "object",
+          "title": "The Namespaceselector Schema",
+          "required": [
+            "matchNames"
+          ],
+          "properties": {
+            "matchNames": {
+              "$id": "#/properties/spec/properties/namespaceSelector/properties/matchNames",
+              "type": "array",
+              "title": "The Matchnames Schema",
+              "items": {
+                "$id": "#/properties/spec/properties/namespaceSelector/properties/matchNames/items",
+                "type": "string",
+                "title": "The Items Schema",
+                "default": "",
+                "examples": [
+                  "wiremind-cayzn-live-production"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        },
+        "selector": {
+          "$id": "#/properties/spec/properties/selector",
+          "type": "object",
+          "title": "The Selector Schema",
+          "required": [
+            "matchLabels"
+          ],
+          "properties": {
+            "matchLabels": {
+              "$id": "#/properties/spec/properties/selector/properties/matchLabels",
+              "type": "object",
+              "title": "The Matchlabels Schema",
+              "required": [
+                "app",
+                "release"
+              ],
+              "properties": {
+                "app": {
+                  "$id": "#/properties/spec/properties/selector/properties/matchLabels/properties/app",
+                  "type": "string",
+                  "title": "The App Schema",
+                  "default": "",
+                  "examples": [
+                    "redis"
+                  ],
+                  "pattern": "^(.*)$"
+                },
+                "release": {
+                  "$id": "#/properties/spec/properties/selector/properties/matchLabels/properties/release",
+                  "type": "string",
+                  "title": "The Release Schema",
+                  "default": "",
+                  "examples": [
+                    "my-release"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

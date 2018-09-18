@@ -1,0 +1,212 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "$id": "#/properties/apiVersion",
+      "type": "string",
+      "title": "The Apiversion Schema",
+      "default": "",
+      "examples": [
+        "monitoring.coreos.com/v1"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "kind": {
+      "$id": "#/properties/kind",
+      "type": "string",
+      "title": "The Kind Schema",
+      "default": "",
+      "examples": [
+        "PrometheusRule"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "metadata": {
+      "$id": "#/properties/metadata",
+      "type": "object",
+      "title": "The Metadata Schema",
+      "required": [
+        "labels",
+        "name"
+      ],
+      "properties": {
+        "labels": {
+          "$id": "#/properties/metadata/properties/labels",
+          "type": "object",
+          "title": "The Labels Schema",
+          "required": [
+            "prometheus"
+          ],
+          "properties": {
+            "prometheus": {
+              "$id": "#/properties/metadata/properties/labels/properties/prometheus",
+              "type": "string",
+              "title": "The Prometheus Schema",
+              "default": "",
+              "examples": [
+                "kube-prometheus"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "name": {
+          "$id": "#/properties/metadata/properties/name",
+          "type": "string",
+          "title": "The Name Schema",
+          "default": "",
+          "examples": [
+            "prometheus-wiremind.rules"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "namespace": {
+          "$id": "#/properties/metadata/properties/namespace",
+          "type": "string",
+          "title": "The Namespace Schema",
+          "default": "",
+          "examples": [
+            "monitoring"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "spec": {
+      "$id": "#/properties/spec",
+      "type": "object",
+      "title": "The Spec Schema",
+      "required": [
+        "groups"
+      ],
+      "properties": {
+        "groups": {
+          "$id": "#/properties/spec/properties/groups",
+          "type": "array",
+          "title": "The Groups Schema",
+          "items": {
+            "$id": "#/properties/spec/properties/groups/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "name",
+              "rules"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#/properties/spec/properties/groups/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "default": "",
+                "examples": [
+                  "blackbox-exporter.rules"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "rules": {
+                "$id": "#/properties/spec/properties/groups/items/properties/rules",
+                "type": "array",
+                "title": "The Rules Schema",
+                "items": {
+                  "$id": "#/properties/spec/properties/groups/items/properties/rules/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "alert",
+                    "annotations",
+                    "expr",
+                    "for",
+                    "labels"
+                  ],
+                  "properties": {
+                    "alert": {
+                      "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/alert",
+                      "type": "string",
+                      "title": "The Alert Schema",
+                      "default": "",
+                      "examples": [
+                        "BlackboxExporterTargetDown"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "annotations": {
+                      "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/annotations",
+                      "type": "object",
+                      "title": "The Annotations Schema",
+                      "required": [
+                        "summary"
+                      ],
+                      "properties": {
+                        "summary": {
+                          "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/annotations/properties/summary",
+                          "type": "string",
+                          "title": "The Summary Schema",
+                          "default": "",
+                          "examples": [
+                            "Endpoint {{ $labels.target }} down"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    },
+                    "expr": {
+                      "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/expr",
+                      "type": "string",
+                      "title": "The Expr Schema",
+                      "default": "",
+                      "examples": [
+                        "probe_success == 0"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "for": {
+                      "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/for",
+                      "type": "string",
+                      "title": "The For Schema",
+                      "default": "",
+                      "examples": [
+                        "45s"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "labels": {
+                      "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/labels",
+                      "type": "object",
+                      "title": "The Labels Schema",
+                      "required": [
+                        "severity"
+                      ],
+                      "properties": {
+                        "severity": {
+                          "$id": "#/properties/spec/properties/groups/items/properties/rules/items/properties/labels/properties/severity",
+                          "type": "string",
+                          "title": "The Severity Schema",
+                          "default": "",
+                          "examples": [
+                            "critical"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
