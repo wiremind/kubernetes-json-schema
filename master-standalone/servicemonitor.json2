@@ -124,8 +124,7 @@
             "type": "object",
             "title": "The Items Schema",
             "required": [
-              "interval",
-              "port"
+              "interval"
             ],
             "properties": {
               "interval": {
@@ -135,16 +134,6 @@
                 "default": "",
                 "examples": [
                   "30s"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "port": {
-                "$id": "#/properties/spec/properties/endpoints/items/properties/port",
-                "type": "string",
-                "title": "The Port Schema",
-                "default": "",
-                "examples": [
-                  "http-metrics"
                 ],
                 "pattern": "^(.*)$"
               }
@@ -182,7 +171,6 @@
           "title": "The Selector Schema",
           "required": [
             "app",
-            "namespace",
             "chart"
           ],
           "properties": {
@@ -193,16 +181,6 @@
               "default": "",
               "examples": [
                 "prometheus-blackbox-exporter"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "namespace": {
-              "$id": "#/properties/spec/properties/selector/properties/namespace",
-              "type": "string",
-              "title": "The Namespace Schema",
-              "default": "",
-              "examples": [
-                "wiremind-cayzn-live-production"
               ],
               "pattern": "^(.*)$"
             },
