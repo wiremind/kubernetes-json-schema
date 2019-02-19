@@ -53,55 +53,7 @@
         "labels": {
           "$id": "#/properties/metadata/properties/labels",
           "type": "object",
-          "title": "The Labels Schema",
-          "required": [
-            "app",
-            "chart",
-            "release",
-            "heritage"
-          ],
-          "properties": {
-            "app": {
-              "$id": "#/properties/metadata/properties/labels/properties/app",
-              "type": "string",
-              "title": "The App Schema",
-              "default": "",
-              "examples": [
-                "wiremind-celery"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "chart": {
-              "$id": "#/properties/metadata/properties/labels/properties/chart",
-              "type": "string",
-              "title": "The Chart Schema",
-              "default": "",
-              "examples": [
-                "wiremind-0.1.7"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "release": {
-              "$id": "#/properties/metadata/properties/labels/properties/release",
-              "type": "string",
-              "title": "The Release Schema",
-              "default": "",
-              "examples": [
-                "cayzn-live-production"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "heritage": {
-              "$id": "#/properties/metadata/properties/labels/properties/heritage",
-              "type": "string",
-              "title": "The Heritage Schema",
-              "default": "",
-              "examples": [
-                "Tiller"
-              ],
-              "pattern": "^(.*)$"
-            }
-          }
+          "title": "The Labels Schema"
         }
       }
     },
